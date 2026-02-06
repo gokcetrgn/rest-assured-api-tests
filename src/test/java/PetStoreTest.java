@@ -6,9 +6,12 @@ import org.testng.annotations.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
+
+
 @Epic("Petstore API tests")
 @Feature("Pet CRUD Operations")
 public class PetStoreTest extends BaseTest{
+
     @Test(description = "Get pet by ID")
     @Description("Verify that a pet can be retrieved successfully using its ID")
     public void getPostByID(){
@@ -19,4 +22,6 @@ public class PetStoreTest extends BaseTest{
                 .body("id",equalTo(123));
 
     }
+
+
 }
