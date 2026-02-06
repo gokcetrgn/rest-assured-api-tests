@@ -3,6 +3,7 @@
     <test name="PetTests">
         <classes>
             <class name="PetStoreTest"/>
+            <class name="UserTest"/>
         </classes>
     </test>
 </suite>

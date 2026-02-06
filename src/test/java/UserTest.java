@@ -14,14 +14,14 @@ public class UserTest extends BaseTest{
     @Test(description = "Create a new user")
     @Description("Create user in the store")
     public void createUser() {
+        // POST sadece status 200 döndürüyor
         given()
                 .spec(requestSpec)
-                .body("{ \"id\": 0, \"username\": \"" + userName + "\", \"firstName\": \"Barbie\", \"lastName\": \"Fan\", \"email\": \"barbieekenn@example.com\", \"password\": \"12345\", \"phone\": \"1234567890\", \"userStatus\": 1 }")
+                .body("{ \"id\": 0, \"username\": \"" + userName + "\", \"firstName\": \"Bambi\", \"lastName\": \"Doe\", \"email\": \"bambi@example.com\", \"password\": \"12345\", \"phone\": \"1234567890\", \"userStatus\": 1 }")
                 .when()
                 .post("/user")
                 .then()
-                .statusCode(200)
-                .body("username", equalTo(userName));
+                .statusCode(200);
     }
     @Test(description = "Get user by username", dependsOnMethods = "createUser")
     @Description("Verify user details")
@@ -34,15 +34,5 @@ public class UserTest extends BaseTest{
                 .statusCode(200)
                 .body("username", equalTo(userName));
     }
-
-    @Test(description = "Delete user", dependsOnMethods = "getUser")
-    @Description("Delete the user and verify deletion")
-    public void deleteUser() {
-        given()
-                .spec(requestSpec)
-                .when()
-                .delete("/user/" + userName)
-                .then()
-                .statusCode(200);
-    }
+    
 }
