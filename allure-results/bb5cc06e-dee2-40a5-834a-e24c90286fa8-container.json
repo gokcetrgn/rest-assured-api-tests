@@ -1,0 +1,1 @@
+{"uuid":"bb5cc06e-dee2-40a5-834a-e24c90286fa8","name":"PetStoreTest","children":["5b299fd8-9403-49b6-b47b-46990d8bc112"],"befores":[{"name":"setup","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1770392825389,"stop":1770392825826}],"afters":[],"start":1770392825361,"stop":1770392827508}

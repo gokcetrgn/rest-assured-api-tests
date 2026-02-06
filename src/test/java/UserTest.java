@@ -1,9 +1,10 @@
 import io.qameta.allure.Description;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
+import model.User;
 import org.testng.annotations.Test;
+import services.UserService;
 
-import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 @Epic("Petstore API tests")
@@ -14,25 +15,27 @@ public class UserTest extends BaseTest{
     @Test(description = "Create a new user")
     @Description("Create user in the store")
     public void createUser() {
-        // POST sadece status 200 döndürüyor
-        given()
-                .spec(requestSpec)
-                .body("{ \"id\": 0, \"username\": \"" + userName + "\", \"firstName\": \"Bambi\", \"lastName\": \"Doe\", \"email\": \"bambi@example.com\", \"password\": \"12345\", \"phone\": \"1234567890\", \"userStatus\": 1 }")
-                .when()
-                .post("/user")
+        User user = new User();
+        user.id = 0;
+        user.username = userName;
+        user.firstName = "Barbiie";
+        user.lastName = "Fan";
+        user.email = "barbieKenFan@gmail.com";
+        user.password = "12345";
+        user.phone = "1234567890";
+        user.userStatus = 1;
+        UserService.createUser(requestSpec, user)
                 .then()
                 .statusCode(200);
     }
     @Test(description = "Get user by username", dependsOnMethods = "createUser")
     @Description("Verify user details")
     public void getUser() {
-        given()
-                .spec(requestSpec)
-                .when()
-                .get("/user/" + userName)
+
+        UserService.getUser(requestSpec, userName)
                 .then()
                 .statusCode(200)
                 .body("username", equalTo(userName));
     }
-    
+
 }

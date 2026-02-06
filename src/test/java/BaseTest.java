@@ -1,5 +1,7 @@
-import io.restassured.RestAssured;
+
+import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
+import io.restassured.http.ContentType;
 import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
@@ -8,8 +10,10 @@ public class BaseTest {
 
     @BeforeClass
     public void setup() {
-        RestAssured.baseURI = "https://petstore.swagger.io/v2";
-        requestSpec = RestAssured.given()
-                .header("Content-Type", "application/json");
+
+        requestSpec = new RequestSpecBuilder()
+                .setBaseUri("https://petstore.swagger.io/v2")
+                .setContentType(ContentType.JSON)
+                .build();
     }
 }
