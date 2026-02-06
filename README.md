@@ -1,6 +1,6 @@
 # Petstore API Test Automation
 
-## 📌 Project Overview
+## Project Overview
 
 This project demonstrates **API test automation** on the **Petstore Swagger API** using:
 
@@ -15,7 +15,7 @@ Currently, the project contains:
 
 ---
 
-## ⚙️ Technologies
+## Technologies
 
 - Java 21  
 - Maven  
@@ -26,7 +26,7 @@ Currently, the project contains:
 
 ---
 
-## 🏗️ Project Structure
+## Project Structure
 ```
 petstore-api-tests
 │
@@ -42,7 +42,7 @@ petstore-api-tests
 ├── pom.xml
 ```
 
-## 💡 Test Scenarios
+## Test Scenarios
 
 ### PetTest
 - Retrieve a pet by ID (GET)
